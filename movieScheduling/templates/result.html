@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html>
+<style>
+table, th, td {
+  border:1px solid plum;
+  align-items: center;
+}
+body {
+background-image: url('templates/bg.webp');
+}
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+h1{
+    text-align: center;
+}
+h3{
+    text-align: center;
+    text-decoration: double;
+    text-decoration-color: bisque;
+}
+div{
+    text-align: center;
+}
+</style>
+<title>Best Practices </title>
+<body>
+    <h1>Best Practices Movie Scheduler</h1>
+    <h3>Your schedule has been generated!! </h3>
+    {% for key,values in schedule.items %}
+        <br>
+        <div>
+            {{key}}
+        </div>
+        <br>
+        <table class = "center" style="width: 75%">
+            <thead>
+                <tr>
+                    <th>Screens</th>
+                    <th>Slot 1</th>
+                    <th>Slot 2</th>
+                    <th>Slot 3</th>
+                    <th>Slot 4</th>
+                    <th>Slot 5</th>
+                    <th>Slot 6</th>
+                </tr>
+            </thead>
+            </tbody>
+                {% for k,v in values.items %}
+                <tr>
+                <td>{{k}}</td>
+                {% for k1,v1 in v.items %}
+                    <td>{{v1}}</td>
+                {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table> 
+    {% endfor %}
+</body>
+</html>
+
+
+
